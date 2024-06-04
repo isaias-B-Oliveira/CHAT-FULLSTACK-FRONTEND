@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+    const [logado, SetLogado] = useState(false);
+    const [nome, SetNome] = useState("");
+    const [sala, SetSala] = useState("");
+
+    const conectaSala = () => {
+        console.log("Acessou a sala " + sala + " com usuario " + nome);
+    };
+
     return (
         <div>
             <h1>Chat</h1>
+            {!logado ? (
+                <>
+                    <label>nome: </label>
+                    <input
+                        type="text"
+                        placehold="nome"
+                        name="nome"
+                        value={nome}
+                        onChange={(text) => {
+                            SetNome(text.target.value);
+                        }}
+                    />
+                    <br></br>
+                    <br></br>
+
+                    <label>Sala: </label>
+                    {/* <input
+                        type="text"
+                        placehold="Sala"
+                        name="sala"
+                        value={sala}
+                        onChange={(text) => {
+                            SetSala(text.target.value);
+                        }}
+                    /> */}
+                    <br></br>
+                    <br></br>
+                    <select
+                        name="sala"
+                        value={sala}
+                        onChange={(text) => SetSala(text.target.value)}
+                    >
+                        <option value="">selecione</option>
+                        <option value="1">Node.js</option>
+                        <option value="2">React</option>
+                        <option value="3">PHP</option>
+                        <option value="4">HTML</option>
+                    </select>
+
+                    <button onClick={conectaSala}>Entrar</button>
+                </>
+            ) : (
+                "logado"
+            )}
         </div>
     );
 }
