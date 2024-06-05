@@ -4,7 +4,7 @@ import socketIoClient from "socket.io-client";
 let socket;
 
 function App() {
-    const ENDPOINT = " http://localhost:8080/";
+    const ENDPOINT = "http://localhost:8080/";
 
     const [logado, SetLogado] = useState(false);
     const [nome, SetNome] = useState("");
@@ -35,7 +35,6 @@ function App() {
                     />
                     <br></br>
                     <br></br>
-
                     <label>Sala: </label>
                     {/* <input
                         type="text"
@@ -45,13 +44,15 @@ function App() {
                         onChange={(text) => {
                             SetSala(text.target.value);
                         }}
-                    /> */}
+                    />
                     <br></br>
-                    <br></br>
+                    <br></br> */}
                     <select
                         name="sala"
                         value={sala}
-                        onChange={(text) => SetSala(text.target.value)}
+                        onChange={(text) => {
+                            SetSala(text.target.value);
+                        }}
                     >
                         <option value="">selecione</option>
                         <option value="1">Node.js</option>
@@ -59,7 +60,7 @@ function App() {
                         <option value="3">PHP</option>
                         <option value="4">HTML</option>
                     </select>
-
+                    <br></br>
                     <button onClick={conectaSala}>Entrar</button>
                 </>
             ) : (
