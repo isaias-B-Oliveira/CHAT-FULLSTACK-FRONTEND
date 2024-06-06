@@ -10,6 +10,8 @@ function App() {
     const [nome, SetNome] = useState("");
     const [sala, SetSala] = useState("");
 
+    const [mensagem, SetMensagem] = useState("");
+
     useEffect(() => {
         socket = socketIoClient(ENDPOINT);
     }, []);
@@ -18,6 +20,10 @@ function App() {
         console.log("Acessou a sala " + sala + " com usuario " + nome);
         SetLogado(true);
         socket.emit("sala_conectar", sala);
+    };
+
+    const enviarMensagem = async () => {
+        console.log("mensagem: " + mensagem);
     };
 
     return (
@@ -66,7 +72,16 @@ function App() {
                     <button onClick={conectaSala}>Entrar</button>
                 </>
             ) : (
-                "logado"
+                <>
+                    <input
+                        type="text"
+                        placeholder="mensagem..."
+                        onChange={(text) => {
+                            SetMensagem(text.target.value);
+                        }}
+                    />
+                    <button onClick={enviarMensagem}>Enviar</button>
+                </>
             )}
         </div>
     );
