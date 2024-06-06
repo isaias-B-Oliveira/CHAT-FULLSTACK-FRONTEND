@@ -16,6 +16,8 @@ function App() {
 
     const conectaSala = () => {
         console.log("Acessou a sala " + sala + " com usuario " + nome);
+        SetLogado(true);
+        socket.emit("sala_conectar", sala);
     };
 
     return (
