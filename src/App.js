@@ -11,6 +11,7 @@ function App() {
     const [sala, SetSala] = useState("");
 
     const [mensagem, SetMensagem] = useState("");
+    const [listaMensagem, SetListaMensagem] = useState([]);
 
     useEffect(() => {
         socket = socketIoClient(ENDPOINT);
@@ -24,6 +25,17 @@ function App() {
 
     const enviarMensagem = async () => {
         console.log("mensagem: " + mensagem);
+        const conteudoMensagem = {
+            sala: sala,
+            conteudo: {
+                nome: nome,
+                mensagem: mensagem,
+            },
+        };
+        console.log(conteudoMensagem);
+        await socket.emit("enviar_mensagem", conteudoMensagem);
+        SetListaMensagem([...listaMensagem, conteudoMensagem.conteudo]);
+        SetMensagem("");
     };
 
     return (
@@ -73,9 +85,18 @@ function App() {
                 </>
             ) : (
                 <>
+                    {listaMensagem.map((msg, key) => {
+                        return (
+                            <div key={key}>
+                                {msg.nome}: {msg.mensagem}
+                            </div>
+                        );
+                    })}
                     <input
                         type="text"
+                        name="mensagem"
                         placeholder="mensagem..."
+                        value={mensagem}
                         onChange={(text) => {
                             SetMensagem(text.target.value);
                         }}
