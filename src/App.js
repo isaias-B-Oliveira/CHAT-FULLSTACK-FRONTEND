@@ -17,6 +17,12 @@ function App() {
         socket = socketIoClient(ENDPOINT);
     }, []);
 
+    useEffect(() => {
+        socket.on("receber_mensagem", (dados) => {
+            SetListaMensagem([...listaMensagem, dados]);
+        });
+    });
+
     const conectaSala = () => {
         console.log("Acessou a sala " + sala + " com usuario " + nome);
         SetLogado(true);
