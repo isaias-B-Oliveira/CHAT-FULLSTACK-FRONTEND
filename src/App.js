@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import socketIoClient from "socket.io-client";
 
+import { Container } from "./styles/styles";
+
 let socket;
 
 function App() {
@@ -45,7 +47,7 @@ function App() {
     };
 
     return (
-        <div>
+        <Container>
             <h1>Chat</h1>
             {!logado ? (
                 <>
@@ -110,7 +112,7 @@ function App() {
                     <button onClick={enviarMensagem}>Enviar</button>
                 </>
             )}
-        </div>
+        </Container>
     );
 }
 
