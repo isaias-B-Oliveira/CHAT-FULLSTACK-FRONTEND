@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import socketIoClient from "socket.io-client";
 
-import { Container, Conteudo, Header } from "./styles/styles";
+import {
+    Container,
+    Conteudo,
+    Header,
+    Form,
+    Campo,
+    Label,
+    Input,
+    Select,
+} from "./styles/styles";
 
 let socket;
 
@@ -51,45 +60,47 @@ function App() {
             {!logado ? (
                 <Conteudo>
                     <Header>Meu chat...</Header>
-                    <label>nome: </label>
-                    <input
-                        type="text"
-                        placehold="nome"
-                        name="nome"
-                        value={nome}
-                        onChange={(text) => {
-                            SetNome(text.target.value);
-                        }}
-                    />
-                    <br></br>
-                    <br></br>
-                    <label>Sala: </label>
-                    {/* <input
-                        type="text"
-                        placehold="Sala"
-                        name="sala"
-                        value={sala}
-                        onChange={(text) => {
-                            SetSala(text.target.value);
-                        }}
-                    />
-                    <br></br>
-                    <br></br> */}
-                    <select
-                        name="sala"
-                        value={sala}
-                        onChange={(text) => {
-                            SetSala(text.target.value);
-                        }}
-                    >
-                        <option value="">selecione</option>
-                        <option value="1">Node.js</option>
-                        <option value="2">React</option>
-                        <option value="3">PHP</option>
-                        <option value="4">HTML</option>
-                    </select>
-                    <br></br>
-                    <button onClick={conectaSala}>Entrar</button>
+                    <Form>
+                        <Campo>
+                            <Label>nome: </Label>
+                            <Input
+                                type="text"
+                                placehold="nome"
+                                name="nome"
+                                value={nome}
+                                onChange={(text) => {
+                                    SetNome(text.target.value);
+                                }}
+                            />
+                        </Campo>
+                        <Campo>
+                            <Label>Sala: </Label>
+                            {/* <input
+                                type="text"
+                                placehold="Sala"
+                                name="sala"
+                                value={sala}
+                                onChange={(text) => {
+                                    SetSala(text.target.value);
+                                }}
+                            /> */}
+
+                            <Select
+                                name="sala"
+                                value={sala}
+                                onChange={(text) => {
+                                    SetSala(text.target.value);
+                                }}
+                            >
+                                <option value="">selecione</option>
+                                <option value="1">Node.js</option>
+                                <option value="2">React</option>
+                                <option value="3">PHP</option>
+                                <option value="4">HTML</option>
+                            </Select>
+                        </Campo>
+                        <button onClick={conectaSala}>Entrar</button>
+                    </Form>
                 </Conteudo>
             ) : (
                 <Conteudo>
