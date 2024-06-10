@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import socketIoClient from "socket.io-client";
 
-import { Container } from "./styles/styles";
+import { Container, Conteudo, Header } from "./styles/styles";
 
 let socket;
 
@@ -48,9 +48,9 @@ function App() {
 
     return (
         <Container>
-            <h1>Chat</h1>
             {!logado ? (
-                <>
+                <Conteudo>
+                    <Header>Meu chat...</Header>
                     <label>nome: </label>
                     <input
                         type="text"
@@ -90,9 +90,9 @@ function App() {
                     </select>
                     <br></br>
                     <button onClick={conectaSala}>Entrar</button>
-                </>
+                </Conteudo>
             ) : (
-                <>
+                <Conteudo>
                     {listaMensagem.map((msg, key) => {
                         return (
                             <div key={key}>
@@ -110,7 +110,7 @@ function App() {
                         }}
                     />
                     <button onClick={enviarMensagem}>Enviar</button>
-                </>
+                </Conteudo>
             )}
         </Container>
     );
