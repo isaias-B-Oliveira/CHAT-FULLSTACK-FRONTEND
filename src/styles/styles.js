@@ -54,3 +54,14 @@ export const Select = styled.select`
     border-radius: 5px;
     border: 1px solid #ccc;
 `;
+
+export const BtnAcessar = styled.button`
+    background: #6fbced;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 13px;
+`;

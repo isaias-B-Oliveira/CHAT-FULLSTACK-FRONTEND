@@ -10,6 +10,7 @@ import {
     Label,
     Input,
     Select,
+    BtnAcessar,
 } from "./styles/styles";
 
 let socket;
@@ -99,7 +100,7 @@ function App() {
                                 <option value="4">HTML</option>
                             </Select>
                         </Campo>
-                        <button onClick={conectaSala}>Entrar</button>
+                        <BtnAcessar onClick={conectaSala}>Entrar</BtnAcessar>
                     </Form>
                 </Conteudo>
             ) : (
