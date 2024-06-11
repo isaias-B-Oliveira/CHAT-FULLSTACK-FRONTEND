@@ -65,3 +65,22 @@ export const BtnAcessar = styled.button`
     padding: 10px;
     margin-top: 13px;
 `;
+
+export const HeaderChat = styled.header`
+    width: 450px;
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    color: #6fbced;
+`;
+
+export const ImgUsuario = styled.img`
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+`;
+
+export const NomeUsuario = styled.div`
+    font-size: 17px;
+    font-weight: 500;
+`;

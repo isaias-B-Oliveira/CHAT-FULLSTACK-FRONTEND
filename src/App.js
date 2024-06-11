@@ -11,6 +11,9 @@ import {
     Input,
     Select,
     BtnAcessar,
+    HeaderChat,
+    ImgUsuario,
+    NomeUsuario,
 } from "./styles/styles";
 
 let socket;
@@ -105,6 +108,10 @@ function App() {
                 </Conteudo>
             ) : (
                 <Conteudo>
+                    <HeaderChat>
+                        <ImgUsuario src="logo192.png" alt={nome} />
+                        <NomeUsuario>{nome}</NomeUsuario>
+                    </HeaderChat>
                     {listaMensagem.map((msg, key) => {
                         return (
                             <div key={key}>
