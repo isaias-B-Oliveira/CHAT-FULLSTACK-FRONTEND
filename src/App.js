@@ -14,6 +14,7 @@ import {
     HeaderChat,
     ImgUsuario,
     NomeUsuario,
+    ChatBox,
 } from "./styles/styles";
 
 let socket;
@@ -112,23 +113,25 @@ function App() {
                         <ImgUsuario src="logo192.png" alt={nome} />
                         <NomeUsuario>{nome}</NomeUsuario>
                     </HeaderChat>
-                    {listaMensagem.map((msg, key) => {
-                        return (
-                            <div key={key}>
-                                {msg.nome}: {msg.mensagem}
-                            </div>
-                        );
-                    })}
-                    <input
-                        type="text"
-                        name="mensagem"
-                        placeholder="mensagem..."
-                        value={mensagem}
-                        onChange={(text) => {
-                            SetMensagem(text.target.value);
-                        }}
-                    />
-                    <button onClick={enviarMensagem}>Enviar</button>
+                    <ChatBox>
+                        {listaMensagem.map((msg, key) => {
+                            return (
+                                <div key={key}>
+                                    {msg.nome}: {msg.mensagem}
+                                </div>
+                            );
+                        })}
+                        <input
+                            type="text"
+                            name="mensagem"
+                            placeholder="mensagem..."
+                            value={mensagem}
+                            onChange={(text) => {
+                                SetMensagem(text.target.value);
+                            }}
+                        />
+                        <button onClick={enviarMensagem}>Enviar</button>
+                    </ChatBox>
                 </Conteudo>
             )}
         </Container>
