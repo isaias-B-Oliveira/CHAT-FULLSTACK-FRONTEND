@@ -15,6 +15,10 @@ import {
     ImgUsuario,
     NomeUsuario,
     ChatBox,
+    ConteudoChat,
+    MsgEnviada,
+    DetMsgEnviada,
+    TextomsgEnviada,
 } from "./styles/styles";
 
 let socket;
@@ -108,12 +112,17 @@ function App() {
                     </Form>
                 </Conteudo>
             ) : (
-                <Conteudo>
+                <ConteudoChat>
                     <HeaderChat>
                         <ImgUsuario src="logo192.png" alt={nome} />
                         <NomeUsuario>{nome}</NomeUsuario>
                     </HeaderChat>
                     <ChatBox>
+                        <MsgEnviada>
+                            <DetMsgEnviada>
+                                <TextomsgEnviada>OLa</TextomsgEnviada>
+                            </DetMsgEnviada>
+                        </MsgEnviada>
                         {listaMensagem.map((msg, key) => {
                             return (
                                 <div key={key}>
@@ -132,7 +141,7 @@ function App() {
                         />
                         <button onClick={enviarMensagem}>Enviar</button>
                     </ChatBox>
-                </Conteudo>
+                </ConteudoChat>
             )}
         </Container>
     );

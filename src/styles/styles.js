@@ -66,6 +66,10 @@ export const BtnAcessar = styled.button`
     margin-top: 13px;
 `;
 
+export const ConteudoChat = styled.section`
+    padding: 25px 0px;
+`;
+
 export const HeaderChat = styled.header`
     width: 450px;
     display: flex;
@@ -94,4 +98,24 @@ export const ChatBox = styled.div`
     background: #f7f7f7;
     box-shadow: inset 0 32px 32px -32px rgba(0 0 0 / 5%),
         inset 0 -32px 32px -32px rgba(0 0 0 / 5%);
+`;
+
+export const MsgEnviada = styled.div`
+    margin: 15px 0;
+    display: flex;
+`;
+
+export const DetMsgEnviada = styled.div`
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+`;
+
+export const TextomsgEnviada = styled.p`
+    background: #6fbced;
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
+        0rem 16px 16px -16px rgba(0 0 0 / 10%);
 `;
