@@ -87,15 +87,6 @@ function App() {
                         </Campo>
                         <Campo>
                             <Label>Sala: </Label>
-                            {/* <input
-                                type="text"
-                                placehold="Sala"
-                                name="sala"
-                                value={sala}
-                                onChange={(text) => {
-                                    SetSala(text.target.value);
-                                }}
-                            /> */}
 
                             <Select
                                 name="sala"
@@ -121,23 +112,30 @@ function App() {
                         <NomeUsuario>{nome}</NomeUsuario>
                     </HeaderChat>
                     <ChatBox>
-                        <MsgEnviada>
-                            <DetMsgEnviada>
-                                <TextomsgEnviada>OLa</TextomsgEnviada>
-                            </DetMsgEnviada>
-                        </MsgEnviada>
-                        <MsgResebida>
-                            <DetMsgResebida>
-                                <TextomsgResebida>OI</TextomsgResebida>
-                            </DetMsgResebida>
-                        </MsgResebida>
                         {listaMensagem.map((msg, key) => {
                             return (
-                                <div key={key}>
-                                    {msg.nome}: {msg.mensagem}
-                                </div>
+                                <>
+                                    {nome === msg.nome ? (
+                                        <MsgEnviada>
+                                            <DetMsgEnviada>
+                                                <TextomsgEnviada>
+                                                    {msg.nome} : {msg.mensagem}
+                                                </TextomsgEnviada>
+                                            </DetMsgEnviada>
+                                        </MsgEnviada>
+                                    ) : (
+                                        <MsgResebida>
+                                            <DetMsgResebida>
+                                                <TextomsgResebida>
+                                                    {msg.nome} : {msg.mensagem}
+                                                </TextomsgResebida>
+                                            </DetMsgResebida>
+                                        </MsgResebida>
+                                    )}
+                                </>
                             );
                         })}
+
                         <input
                             type="text"
                             name="mensagem"
