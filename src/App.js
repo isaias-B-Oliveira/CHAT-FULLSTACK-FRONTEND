@@ -19,6 +19,9 @@ import {
     MsgEnviada,
     DetMsgEnviada,
     TextomsgEnviada,
+    MsgResebida,
+    DetMsgResebida,
+    TextomsgResebida,
 } from "./styles/styles";
 
 let socket;
@@ -123,6 +126,11 @@ function App() {
                                 <TextomsgEnviada>OLa</TextomsgEnviada>
                             </DetMsgEnviada>
                         </MsgEnviada>
+                        <MsgResebida>
+                            <DetMsgResebida>
+                                <TextomsgResebida>OI</TextomsgResebida>
+                            </DetMsgResebida>
+                        </MsgResebida>
                         {listaMensagem.map((msg, key) => {
                             return (
                                 <div key={key}>
