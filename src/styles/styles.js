@@ -101,7 +101,7 @@ export const ChatBox = styled.div`
 `;
 
 export const MsgEnviada = styled.div`
-    margin: 15px 0;
+    margin: 15px 14px 15px 0px;
     display: flex;
 `;
 
@@ -114,6 +114,28 @@ export const TextomsgEnviada = styled.p`
     background: #6fbced;
     color: #fff;
     border-radius: 18px 18px 0 18px;
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
+        0rem 16px 16px -16px rgba(0 0 0 / 10%);
+`;
+
+export const MsgResebida = styled.div`
+    margin: 15px 0;
+    display: flex;
+    align-items: flex-end;
+`;
+
+export const DetMsgResebida = styled.div`
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: calc(100% - 130px);
+`;
+
+export const TextomsgResebida = styled.p`
+    background: #58b666;
+    color: #fff;
+    border-radius: 18px 18px 18px 0;
     word-wrap: break-word;
     padding: 8px 16px;
     box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
