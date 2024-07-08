@@ -22,6 +22,7 @@ import {
     MsgResebida,
     DetMsgResebida,
     TextomsgResebida,
+    EnviaMsg,
 } from "./styles/styles";
 
 let socket;
@@ -114,7 +115,7 @@ function App() {
                     <ChatBox>
                         {listaMensagem.map((msg, key) => {
                             return (
-                                <>
+                                <div key={key}>
                                     {nome === msg.nome ? (
                                         <MsgEnviada>
                                             <DetMsgEnviada>
@@ -132,20 +133,21 @@ function App() {
                                             </DetMsgResebida>
                                         </MsgResebida>
                                     )}
-                                </>
+                                </div>
                             );
                         })}
-
-                        <input
-                            type="text"
-                            name="mensagem"
-                            placeholder="mensagem..."
-                            value={mensagem}
-                            onChange={(text) => {
-                                SetMensagem(text.target.value);
-                            }}
-                        />
-                        <button onClick={enviarMensagem}>Enviar</button>
+                        <EnviaMsg>
+                            <input
+                                type="text"
+                                name="mensagem"
+                                placeholder="mensagem..."
+                                value={mensagem}
+                                onChange={(text) => {
+                                    SetMensagem(text.target.value);
+                                }}
+                            />
+                            <button onClick={enviarMensagem}>Enviar</button>
+                        </EnviaMsg>
                     </ChatBox>
                 </ConteudoChat>
             )}

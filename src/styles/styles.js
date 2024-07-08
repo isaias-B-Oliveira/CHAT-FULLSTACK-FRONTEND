@@ -141,3 +141,9 @@ export const TextomsgResebida = styled.p`
     box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
         0rem 16px 16px -16px rgba(0 0 0 / 10%);
 `;
+
+export const EnviaMsg = styled.div`
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+`;
