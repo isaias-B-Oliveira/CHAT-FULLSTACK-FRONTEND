@@ -143,7 +143,17 @@ export const TextomsgResebida = styled.p`
 `;
 
 export const EnviaMsg = styled.div`
-    padding: 18px 0;
+    padding: 18px 15px;
     display: flex;
     justify-content: space-between;
+`;
+
+export const CampoMsg = styled.input`
+    height: 45px;
+    width: calc(100% - 58px);
+    font-size: 16px;
+    padding: 0 13px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    border-radius: 5px 0 0 5px;
 `;

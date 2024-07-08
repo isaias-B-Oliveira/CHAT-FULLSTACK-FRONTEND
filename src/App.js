@@ -23,6 +23,7 @@ import {
     DetMsgResebida,
     TextomsgResebida,
     EnviaMsg,
+    CampoMsg,
 } from "./styles/styles";
 
 let socket;
@@ -137,7 +138,7 @@ function App() {
                             );
                         })}
                         <EnviaMsg>
-                            <input
+                            <CampoMsg
                                 type="text"
                                 name="mensagem"
                                 placeholder="mensagem..."
