@@ -24,6 +24,7 @@ import {
     TextomsgResebida,
     EnviaMsg,
     CampoMsg,
+    BtmEnviaMsg,
 } from "./styles/styles";
 
 let socket;
@@ -147,7 +148,9 @@ function App() {
                                     SetMensagem(text.target.value);
                                 }}
                             />
-                            <button onClick={enviarMensagem}>Enviar</button>
+                            <BtmEnviaMsg onClick={enviarMensagem}>
+                                Enviar
+                            </BtmEnviaMsg>
                         </EnviaMsg>
                     </ChatBox>
                 </ConteudoChat>

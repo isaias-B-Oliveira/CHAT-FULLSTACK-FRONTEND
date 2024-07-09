@@ -157,3 +157,13 @@ export const CampoMsg = styled.input`
     outline: none;
     border-radius: 5px 0 0 5px;
 `;
+export const BtmEnviaMsg = styled.button`
+    background: #6fbced;
+    color: #fff;
+    width: 75px;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+`;
