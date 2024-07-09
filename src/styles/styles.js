@@ -91,8 +91,8 @@ export const NomeUsuario = styled.div`
 
 export const ChatBox = styled.div`
     position: relative;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 400px;
+    max-height: 400px;
     overflow-y: auto;
     padding: 10px 10px 20px 10px;
     background: #f7f7f7;
@@ -116,8 +116,8 @@ export const TextomsgEnviada = styled.p`
     border-radius: 18px 18px 0 18px;
     word-wrap: break-word;
     padding: 8px 16px;
-    box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
-        0rem 16px 16px -16px rgba(0 0 0 / 10%);
+    /* box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
+        0rem 16px 16px -16px rgba(0 0 0 / 10%); */
 `;
 
 export const MsgResebida = styled.div`
@@ -138,8 +138,8 @@ export const TextomsgResebida = styled.p`
     border-radius: 18px 18px 18px 0;
     word-wrap: break-word;
     padding: 8px 16px;
-    box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
-        0rem 16px 16px -16px rgba(0 0 0 / 10%);
+    /* box-shadow: 0 0 0 32px rgba(0 0 0 / 8%),
+        0rem 16px 16px -16px rgba(0 0 0 / 10%); */
 `;
 
 export const EnviaMsg = styled.div`

@@ -138,21 +138,21 @@ function App() {
                                 </div>
                             );
                         })}
-                        <EnviaMsg>
-                            <CampoMsg
-                                type="text"
-                                name="mensagem"
-                                placeholder="mensagem..."
-                                value={mensagem}
-                                onChange={(text) => {
-                                    SetMensagem(text.target.value);
-                                }}
-                            />
-                            <BtmEnviaMsg onClick={enviarMensagem}>
-                                Enviar
-                            </BtmEnviaMsg>
-                        </EnviaMsg>
                     </ChatBox>
+                    <EnviaMsg>
+                        <CampoMsg
+                            type="text"
+                            name="mensagem"
+                            placeholder="mensagem..."
+                            value={mensagem}
+                            onChange={(text) => {
+                                SetMensagem(text.target.value);
+                            }}
+                        />
+                        <BtmEnviaMsg onClick={enviarMensagem}>
+                            Enviar
+                        </BtmEnviaMsg>
+                    </EnviaMsg>
                 </ConteudoChat>
             )}
         </Container>
