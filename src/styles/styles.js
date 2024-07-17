@@ -132,7 +132,6 @@ export const DetMsgResebida = styled.div`
     margin-left: 10px;
     max-width: calc(100% - 130px);
 `;
-
 export const TextomsgResebida = styled.p`
     background: #58b666;
     color: #fff;
@@ -159,6 +158,7 @@ export const CampoMsg = styled.input`
     outline: none;
     border-radius: 5px 0 0 5px;
 `;
+
 export const BtmEnviaMsg = styled.button`
     background: #6fbced;
     color: #fff;
