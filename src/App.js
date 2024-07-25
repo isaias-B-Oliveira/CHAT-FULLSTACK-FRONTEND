@@ -33,6 +33,7 @@ function App() {
     const ENDPOINT = "http://localhost:8080/";
 
     const [logado, SetLogado] = useState(false);
+    const [email, SetEmail] = useState("");
     const [nome, SetNome] = useState("");
     const [sala, SetSala] = useState("");
 
@@ -49,10 +50,11 @@ function App() {
         });
     });
 
-    const conectaSala = () => {
-        console.log("Acessou a sala " + sala + " com usuario " + nome);
-        SetLogado(true);
-        socket.emit("sala_conectar", sala);
+    const conectaSala = async (e) => {
+        e.preventDefault();
+        console.log("Acessou a sala " + sala + " com o email " + email);
+        // SetLogado(true);
+        // socket.emit("sala_conectar", sala);
     };
 
     const enviarMensagem = async () => {
@@ -75,16 +77,16 @@ function App() {
             {!logado ? (
                 <Conteudo>
                     <Header>Meu chat...</Header>
-                    <Form>
+                    <Form onSubmit={conectaSala}>
                         <Campo>
-                            <Label>nome: </Label>
+                            <Label>Email: </Label>
                             <Input
                                 type="text"
-                                placehold="nome"
-                                name="nome"
-                                value={nome}
+                                placehold="email"
+                                name="email"
+                                value={email}
                                 onChange={(text) => {
-                                    SetNome(text.target.value);
+                                    SetEmail(text.target.value);
                                 }}
                             />
                         </Campo>
@@ -105,7 +107,7 @@ function App() {
                                 <option value="4">HTML</option>
                             </Select>
                         </Campo>
-                        <BtnAcessar onClick={conectaSala}>Entrar</BtnAcessar>
+                        <BtnAcessar>Entrar</BtnAcessar>
                     </Form>
                 </Conteudo>
             ) : (
