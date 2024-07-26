@@ -27,6 +27,8 @@ import {
     BtmEnviaMsg,
 } from "./styles/styles";
 
+import api from "./config/configApi";
+
 let socket;
 
 function App() {
@@ -53,6 +55,24 @@ function App() {
     const conectaSala = async (e) => {
         e.preventDefault();
         console.log("Acessou a sala " + sala + " com o email " + email);
+
+        const headers = {
+            "Content-Type": "application/json",
+        };
+
+        await api
+            .post("/validar-acesso", { email }, { headers })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                if (err.response) {
+                    console.log(err.response.data.mensagem);
+                } else {
+                    console.log("erro: tente mais tarde");
+                }
+            });
+
         // SetLogado(true);
         // socket.emit("sala_conectar", sala);
     };
