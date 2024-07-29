@@ -4,6 +4,4 @@ comunicação com o backend entempo real
 
 ### npm install styled-components
 
-```bash
-isaias
-```
+
