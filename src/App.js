@@ -35,6 +35,7 @@ function App() {
     const ENDPOINT = "http://localhost:8080/";
 
     const [logado, SetLogado] = useState(false);
+    const [usuarioId, SetUsuarioId] = useState("");
     const [email, SetEmail] = useState("");
     const [nome, SetNome] = useState("");
     const [sala, SetSala] = useState("");
@@ -63,7 +64,14 @@ function App() {
         await api
             .post("/validar-acesso", { email }, { headers })
             .then((response) => {
-                console.log(response);
+                console.log(response.data.mensagem);
+                console.log(response.data.dadosUsuario.id);
+                console.log(response.data.dadosUsuario.nome);
+
+                SetNome(response.data.dadosUsuario.nome);
+                SetUsuarioId(response.data.dadosUsuario.id);
+                SetLogado(true);
+                socket.emit("sala_conectar", sala);
             })
             .catch((err) => {
                 if (err.response) {
@@ -73,8 +81,8 @@ function App() {
                 }
             });
 
-        // SetLogado(true);
-        // socket.emit("sala_conectar", sala);
+        //
+        //
     };
 
     const enviarMensagem = async () => {
