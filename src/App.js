@@ -99,6 +99,7 @@ function App() {
             },
         };
         console.log(conteudoMensagem);
+
         await socket.emit("enviar_mensagem", conteudoMensagem);
         SetListaMensagem([...listaMensagem, conteudoMensagem.conteudo]);
         SetMensagem("");
