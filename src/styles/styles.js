@@ -143,7 +143,7 @@ export const TextomsgResebida = styled.p`
     box-shadow: 0px 9px 16px -3px rgba(0, 0, 0, 0.45);
 `;
 
-export const EnviaMsg = styled.div`
+export const EnviaMsg = styled.form`
     padding: 18px 15px;
     display: flex;
     justify-content: space-between;

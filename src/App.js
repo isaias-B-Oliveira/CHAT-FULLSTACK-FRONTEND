@@ -85,13 +85,17 @@ function App() {
         //
     };
 
-    const enviarMensagem = async () => {
+    const enviarMensagem = async (e) => {
+        e.preventDefault();
         console.log("mensagem: " + mensagem);
         const conteudoMensagem = {
             sala: sala,
             conteudo: {
-                nome: nome,
                 mensagem: mensagem,
+                usuario: {
+                    id: usuarioId,
+                    nome: nome,
+                },
             },
         };
         console.log(conteudoMensagem);
@@ -169,7 +173,7 @@ function App() {
                             );
                         })}
                     </ChatBox>
-                    <EnviaMsg>
+                    <EnviaMsg onSubmit={enviarMensagem}>
                         <CampoMsg
                             type="text"
                             name="mensagem"
@@ -179,9 +183,7 @@ function App() {
                                 SetMensagem(text.target.value);
                             }}
                         />
-                        <BtmEnviaMsg onClick={enviarMensagem}>
-                            Enviar
-                        </BtmEnviaMsg>
+                        <BtmEnviaMsg>Enviar</BtmEnviaMsg>
                     </EnviaMsg>
                 </ConteudoChat>
             )}
