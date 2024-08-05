@@ -168,11 +168,12 @@ function App() {
                         {listaMensagem.map((msg, key) => {
                             return (
                                 <div key={key}>
-                                    {nome === msg.nome ? (
+                                    {usuarioId === msg.usuario.id ? (
                                         <MsgEnviada>
                                             <DetMsgEnviada>
                                                 <TextomsgEnviada>
-                                                    {msg.nome} : {msg.mensagem}
+                                                    {msg.usuario.nome} :{" "}
+                                                    {msg.mensagem}
                                                 </TextomsgEnviada>
                                             </DetMsgEnviada>
                                         </MsgEnviada>
@@ -180,7 +181,8 @@ function App() {
                                         <MsgResebida>
                                             <DetMsgResebida>
                                                 <TextomsgResebida>
-                                                    {msg.nome} : {msg.mensagem}
+                                                    {msg.usuario.nome} :{" "}
+                                                    {msg.mensagem}
                                                 </TextomsgResebida>
                                             </DetMsgResebida>
                                         </MsgResebida>
