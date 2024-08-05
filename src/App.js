@@ -72,6 +72,7 @@ function App() {
                 SetUsuarioId(response.data.dadosUsuario.id);
                 SetLogado(true);
                 socket.emit("sala_conectar", sala);
+                listaMensagens();
             })
             .catch((err) => {
                 if (err.response) {
@@ -80,9 +81,23 @@ function App() {
                     console.log("erro: tente mais tarde");
                 }
             });
+    };
 
-        //
-        //
+    const listaMensagens = async () => {
+        await api
+            .get("/lista-mensagem/" + sala)
+            .then((response) => {
+                console.log(response);
+                console.log(response.data.mensagens);
+                SetListaMensagem(response.data.mensagens);
+            })
+            .catch((err) => {
+                if (err.response) {
+                    console.log(err.response.data.mensagem);
+                } else {
+                    console.log("erro: tente mais tarde");
+                }
+            });
     };
 
     const enviarMensagem = async (e) => {
