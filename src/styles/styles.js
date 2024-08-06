@@ -169,3 +169,8 @@ export const BtmEnviaMsg = styled.button`
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 `;
+
+export const Alerta = styled.p`
+    background-color: #f8d7da;
+    color: #842029;
+`;

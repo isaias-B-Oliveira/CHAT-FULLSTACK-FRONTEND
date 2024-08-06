@@ -26,6 +26,7 @@ import {
     EnviaMsg,
     CampoMsg,
     BtmEnviaMsg,
+    Alerta,
 } from "./styles/styles";
 
 import api from "./config/configApi";
@@ -43,6 +44,11 @@ function App() {
 
     const [mensagem, SetMensagem] = useState("");
     const [listaMensagem, SetListaMensagem] = useState([]);
+
+    const [statusUsuario, setStatusUsuario] = useState({
+        type: "",
+        mensagem: "",
+    });
 
     useEffect(() => {
         socket = socketIoClient(ENDPOINT);
@@ -77,9 +83,15 @@ function App() {
             })
             .catch((err) => {
                 if (err.response) {
-                    console.log(err.response.data.mensagem);
+                    setStatusUsuario({
+                        type: "erro",
+                        mensagem: err.response.data.mensagem,
+                    });
                 } else {
-                    console.log("erro: tente mais tarde");
+                    setStatusUsuario({
+                        type: "erro",
+                        mensagem: "erro: tente mais tarde",
+                    });
                 }
             });
     };
@@ -127,6 +139,13 @@ function App() {
                 <Conteudo>
                     <Header>Meu chat...</Header>
                     <Form onSubmit={conectaSala}>
+                        {statusUsuario.type === "erro" ? (
+                            <Alerta style={{ color: "#ff0000" }}>
+                                {statusUsuario.mensagem}
+                            </Alerta>
+                        ) : (
+                            ""
+                        )}
                         <Campo>
                             <Label>Email: </Label>
                             <Input
@@ -174,7 +193,7 @@ function App() {
                                             <MsgEnviada>
                                                 <DetMsgEnviada>
                                                     <TextomsgEnviada>
-                                                        {msg.usuario.nome} :{" "}
+                                                        {msg.usuario.nome}:{" "}
                                                         {msg.mensagem}
                                                     </TextomsgEnviada>
                                                 </DetMsgEnviada>
@@ -183,7 +202,7 @@ function App() {
                                             <MsgResebida>
                                                 <DetMsgResebida>
                                                     <TextomsgResebida>
-                                                        {msg.usuario.nome} :{" "}
+                                                        {msg.usuario.nome}:{" "}
                                                         {msg.mensagem}
                                                     </TextomsgResebida>
                                                 </DetMsgResebida>
