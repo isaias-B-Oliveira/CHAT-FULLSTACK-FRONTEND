@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import socketIoClient from "socket.io-client";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 import {
     Container,
@@ -165,32 +166,35 @@ function App() {
                         <NomeUsuario>{nome}</NomeUsuario>
                     </HeaderChat>
                     <ChatBox>
-                        {listaMensagem.map((msg, key) => {
-                            return (
-                                <div key={key}>
-                                    {usuarioId === msg.usuario.id ? (
-                                        <MsgEnviada>
-                                            <DetMsgEnviada>
-                                                <TextomsgEnviada>
-                                                    {msg.usuario.nome} :{" "}
-                                                    {msg.mensagem}
-                                                </TextomsgEnviada>
-                                            </DetMsgEnviada>
-                                        </MsgEnviada>
-                                    ) : (
-                                        <MsgResebida>
-                                            <DetMsgResebida>
-                                                <TextomsgResebida>
-                                                    {msg.usuario.nome} :{" "}
-                                                    {msg.mensagem}
-                                                </TextomsgResebida>
-                                            </DetMsgResebida>
-                                        </MsgResebida>
-                                    )}
-                                </div>
-                            );
-                        })}
+                        <ScrollToBottom className="scrollMsg">
+                            {listaMensagem.map((msg, key) => {
+                                return (
+                                    <div key={key}>
+                                        {usuarioId === msg.usuario.id ? (
+                                            <MsgEnviada>
+                                                <DetMsgEnviada>
+                                                    <TextomsgEnviada>
+                                                        {msg.usuario.nome} :{" "}
+                                                        {msg.mensagem}
+                                                    </TextomsgEnviada>
+                                                </DetMsgEnviada>
+                                            </MsgEnviada>
+                                        ) : (
+                                            <MsgResebida>
+                                                <DetMsgResebida>
+                                                    <TextomsgResebida>
+                                                        {msg.usuario.nome} :{" "}
+                                                        {msg.mensagem}
+                                                    </TextomsgResebida>
+                                                </DetMsgResebida>
+                                            </MsgResebida>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </ScrollToBottom>
                     </ChatBox>
+
                     <EnviaMsg onSubmit={enviarMensagem}>
                         <CampoMsg
                             type="text"
