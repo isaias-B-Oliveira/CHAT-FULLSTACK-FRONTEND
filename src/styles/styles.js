@@ -173,4 +173,8 @@ export const BtmEnviaMsg = styled.button`
 export const Alerta = styled.p`
     background-color: #f8d7da;
     color: #842029;
+    margin: 10px 0px;
+    border: 1px solid #f5c2c7;
+    border-radius: 5px;
+    padding: 7px;
 `;
